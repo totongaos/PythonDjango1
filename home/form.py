@@ -3,7 +3,6 @@ import re #bieu thuc chinh quy
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 
-
 class RegistrationForm(forms.Form):
     username = forms.CharField(label='Username', max_length=30)
     email = forms.EmailField(label='Email')
