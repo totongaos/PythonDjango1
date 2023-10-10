@@ -16,7 +16,9 @@
         }
     </style>
 </head>
+
 <body>
+
     <header>
         <div class="row" style="background-color : #ae582d">
             <center><img src="{% static 'img/mushroom.svg'  %}" style="height:30px; width:30px"></center>
@@ -24,44 +26,52 @@
             <center><span class="color_11 wixui-rich-text__text" style="color: #fcfdf9"><i>chỉ là CHƯA làm được, chứ không phải không làm được</i></span></center>
         </div>
     </header>
-
-    <div class="container-fluid" style="min-height:85%">
-        <br>
-        <div class="row">
-            <div class="col-sm-12">
-                <center> <img src="{% static 'img/totongaos1.jpg' %}" class="responsive-img" style="width: 1400px; height: 400px; object-fit: cover; object-position: 50% 50%;"></center>
-                <center><h4><span style="color: #fcfdf9">My CVs</span></h4></center>
-                <center><hr width="80%"    color="#fcfdf9"    align="center"    size="4px"></center>
-            </div>
+    <br>
+    <!-- sile img-->
+    <div class="row">
+        <div class="col-sm-12">
+            <center> <img src="{% static 'img/totongaos1.jpg' %}"
+                          class="img-fluid" alt="Responsive image"
+                          style="width: 1200px; height: 350px; object-fit: cover; object-position: 50% 50%;"></center>\
+            
+            <center><h4><span style="color: #fcfdf9">My CVs</span></h4></center>
+            <center><hr width="80%"    color="#fcfdf9"    align="center"    size="4px"></center>
         </div>
-        <br>
-        <div class="row">
-            <div class="col-sm-12" style="color:#fcfdf9">
-                <center><h1>My CVs làm từ Python Django</h1></center>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-sm-2">
-                <div class="bs-slidebar" style="background-color : #28311b">
-                    <ul class="nav flex-column">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="container-fluid" style="color: #fcfdf9">
-                    {% block content %}
-                    {% endblock %}
-                </div>
-            </div>
-            <div class="col-sm-4" style="min-width:50%">
-                <center><img src="{% static 'img/myself.jpg' %}" class="responsive-img" style="height:490px; width: 350px "></center>
-            </div>
-        </div>
-        <br><br>
     </div>
+    <!-- slidebar-->
+   <div class="row">
+        <div class="bs-slidebar">
+            <nav class="nav navbar-light justify-content-center"  style="background-color: #28311b;">
+                <a class="nav-link active" href="/"><button class="btn btn-sm btn-outline-secondary" type="button">Home</button></a>
+                <a class="nav-link active" href="{% url 'contact' %}"><button class="btn btn-sm btn-outline-secondary" type="button">Contact</button></a>
+                <a class="nav-link active" href="{% url 'blog' %}"><button class="btn btn-sm btn-outline-secondary" type="button">My Mini Project</button></a>
+            </nav>
+        </div>
+   </div>
+    <br>
+    <!--Title-->
+    <div class="row">
+        <div class="col-sm-12" style="color:#fcfdf9">
+            <center><h1>My CVs làm từ Python Django</h1></center>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-3">
+            <div class="container-fluid" style="color: #fcfdf9">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+        <div class="col-sm-4" style="min-width:50%">
+            <center><img class="img-fluid" alt="Responsive image"
+                         src="{% static 'img/myself.jpg' %}"
+                         style="height:450px; width: 350px "></center>
+        </div>
+    </div>
+    <br><br>
 
     <footer>
         <div class="row" style="background-color : #ae582d">

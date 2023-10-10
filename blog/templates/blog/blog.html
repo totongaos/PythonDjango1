@@ -1,0 +1,15 @@
+{% extends "pages/base.html" %}
+
+{% block title %}My Mini Project{% endblock %}
+
+{% block content %}
+<!--Posts ở file views của app blog-->
+{% for post in Posts %}
+<!--Y: print ra năm 4 số; y print ra năm 2 số-->
+<h4>{{post.date|date:"d-m-Y"}} <a href="{% url 'post' post.id %}">{{post.title}}</a></h4>
+{% if post.image %}
+<img src="{{ post.image.url }}" width="100px" height="60px"/>
+{% endif %}
+
+{% endfor %}
+{% endblock %}
