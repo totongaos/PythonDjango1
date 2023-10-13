@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href=" {% static 'css/bootstrap.min.css' %}" type="text/css">
+    <title >Register</title>
+
+    <style>
+        html, body {
+            height : 100%;
+            background-color : #f0f7d4;
+        }
+    </style>
+</head>
+
+<body>
+<!--header-->
+<header>
+        <div class="row" style="background-color : #ae582d; min-height:10%">
+            <center><img src="{% static 'img/mushroom.svg'  %}" style="height:30px; width:30px"></center>
+            <center><span class="color_11 wixui-rich-text__text" style="color: #fcfdf9">Hồng Đào (Totongaos)</span></center>
+            <center><span class="color_11 wixui-rich-text__text" style="color: #fcfdf9"><i>chỉ là CHƯA làm được, chứ không phải không làm được</i></span></center>
+        </div>
+    </header>
+
+<!--form register-->
+<div class="container" style="min-height:90%">
+    <div class="row">
+        <div class="col-sm-5"></div>
+        <div class="col-sm-5">
+            <div class="card border-success mt-5 w-50">
+                <!--  method="POST" sẽ ẩn đi data khi user login/logout-->
+                <form method="POST" >
+                    <div class="card-body">
+                        {% csrf_token %}
+                        {% for key,value in form.error.items %}
+                            {{value}}
+                        {% endfor %}
+                        <p><label>Username: </label><br>{{form.username}}</p>
+                        <p><label>Password: </label><br>{{form.password}}</p>
+                    </div>
+                    <!-- value="/" khi login thanh cong sẽ link ve home-->
+                    <center><div class="card-body">
+                        <input type="hidden" name="next" value="/"/>
+                        <input type="submit" class="btn btn-lg btn-outline-success" value="Login"/>
+                    </div></center>
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+
+<!--footer-->
+<footer>
+    <div class="row" style="background-color : #ae582d">
+        <center>
+            <a href="https://www.facebook.com/totongaos"><img src="{% static 'img/facebook.svg' %}" style="width: 20px; height: 20px; object-fit: cover;"></a>
+            | <a href="https://www.instagram.com/_erica0511/"><img src="{% static 'img/instagram.svg' %}" style="width: 20px; height: 20px; object-fit: cover;"></a>
+            | <a data-auto-recognition="true" href="mailto:hongdao05112000@gmail.com"><img src="{% static 'img/gmail.svg' %}" style="width: 20px; height: 20px; object-fit: cover;"></a>
+        </center>
+        <center><span class="color_11 wixui-rich-text__text" style="color: #fcfdf9">©2023 by Hong Dao (Totongaos).</span></center>
+    </div>
+</footer>
+
+</body>
+</html>

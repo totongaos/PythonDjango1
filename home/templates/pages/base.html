@@ -39,19 +39,42 @@
                 </div>
             </div></center>
         </div>
-        <center><hr width="70%" color="#fcfdf9"  align="center"  size="4px"></center>
+        <center><hr width="90%" color="#fcfdf9"  align="center"  size="4px"></center>
     </div>
 
     <!-- slidebar-->
     <div class="row">
-        <div class="bs-slidebar">
-            <nav class="nav navbar-light justify-content-center"  style="background-color: #28311b;">
-                <a class="nav-link active" href="/"><button class="btn btn-sm btn-outline-secondary" type="button">Home</button></a>
-                <a class="nav-link active" href="{% url 'contact' %}"><button class="btn btn-sm btn-outline-secondary" type="button">Contact</button></a>
-                <a class="nav-link active" href="{% url 'blog' %}"><button class="btn btn-sm btn-outline-secondary" type="button">My Mini Project</button></a>
-            </nav>
+        <div class="col-sm-1" style="background-color: #28311b;"></div>
+        <!-- slidebar-->
+        <div class="col-sm-8">
+            <div class=" bs-slidebar">
+                <nav class="nav navbar-light justify-content"  style="background-color: #28311b;">
+                    <a class="nav-link active" href="/"><button class="btn btn-sm btn-outline-secondary" type="button">Home</button></a>
+                    <a class="nav-link active" href="{% url 'contact' %}"><button class="btn btn-sm btn-outline-secondary" type="button">Contact</button></a>
+                    <a class="nav-link active" href="{% url 'blog' %}"><button class="btn btn-sm btn-outline-secondary" type="button">My Mini Project</button></a>
+                </nav>
+            </div>
         </div>
-   </div>
+<!--        nut login logout-->
+        <div class="col-sm-3">
+            <div class="bs-slidebar">
+                <nav class="nav navbar-light justify-content"  style="background-color: #28311b; color: #fcfdf9";">
+                    {% if user.username %}
+                        <p><a class="nav-link disabled" style="color: #fcfdf9";" %}"><h5>Hello {{user.username}}</h5></a></p>
+                        <p><a class="nav-link active" href="{% url 'logout' %}">
+                            <button class="btn btn-sm btn-outline-secondary" type="button">Logout</button></a></p>
+                    {% else %}
+                        <a class="nav-link active" href="{% url 'register' %}">
+                            <button class="btn btn-sm btn-outline-secondary" type="button">Register</button>
+                        </a>
+                        <a class="nav-link active" href="{% url 'login' %}">
+                            <button class="btn btn-sm btn-outline-secondary" type="button">Login</button>
+                        </a>
+                    {% endif %}
+                </nav>
+            </div>
+        </div>
+    </div>
     <br>
     <!--Title-->
     <div class="row">
